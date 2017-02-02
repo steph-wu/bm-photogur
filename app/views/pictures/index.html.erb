@@ -12,3 +12,13 @@
     <li><%= picture.title %></li>
   <% end %>
 </ul>
+
+<h1>Pictures uploaded more than 1 day ago</h1>
+
+<% @older_pictures.each do |picture| %>
+  <li><%= picture.title %></li>
+<% end %>
+
+<p>
+  Total: <%= Picture.created_before(1.day.ago).count %>
+</p>
